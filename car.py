@@ -40,8 +40,8 @@ else:
             f"Fuel Type : {fuel_type}\n"
             f"Mileage : {mileage} km/l\n"
             f"Run per Year : {run_per_year} km\n"
-            f"Petrol Price : ₹{petrol_price}/liter\n"
-            f"Yearly Handling Cost : ₹{yearly_cost:.2f}\n"
+            f"Petrol Price : {petrol_price}/liter\n"
+            f"Yearly Handling Cost : {yearly_cost:.2f}\n"
             f"Decision : {decision}"
         )
 
