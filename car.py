@@ -1,42 +1,40 @@
-def car_details():
-    name = input("Enter Car Name: ")
-    model = input("Enter Car Model: ")
-    price = int(input("Enter Car Price: "))
-    fuel_type = input("Enter Fuel Type: ")
-    mileage = float(input("Enter Mileage (km/l): "))
-    run_per_year = int(input("Enter Run per Year (km): "))
-    petrol_price = float(input("Enter Petrol Price per liter: "))
+import sys
 
-    return name, model, price, fuel_type, mileage, run_per_year, petrol_price
+if len(sys.argv)==8:
+    name = sys.argv[1]
+    model = sys.argv[2]
+    price = int(sys.argv[3])
+    fuel_type = sys.argv[4]
+    mileage = float(sys.argv[5])
+    run_per_year = int(sys.argv[6])
+    petrol_price = float(sys.argv[7])
 
-
-def display_car_details(name, model, price, fuel_type, mileage, run_per_year, petrol_price):
-
-
-    yearly_cost = (run_per_year / mileage) * petrol_price
-    normal_limit = 80000
+    def display_car_details(name, model, price, fuel_type, mileage, run_per_year, petrol_price):
 
 
-    if yearly_cost > normal_limit:
-        decision = "DO NOT BUY (High yearly handling cost)"
-    else:
-        decision = "BUY (Handling cost is acceptable)"
-
-    details = (
-        f"Car Name : {name}\n"
-        f"Car Model : {model}\n"
-        f"Car Price : {price}\n"
-        f"Fuel Type : {fuel_type}\n"
-        f"Mileage : {mileage} km/l\n"
-        f"Run per Year : {run_per_year} km\n"
-        f"Petrol Price : ₹{petrol_price}/liter\n"
-        f"Yearly Handling Cost : ₹{yearly_cost:.2f}\n"
-        f"Decision : {decision}"
-    )
-
-    return details
+        yearly_cost = (run_per_year / mileage) * petrol_price
+        normal_limit = 80000
 
 
+        if yearly_cost > normal_limit:
+            decision = "DO NOT BUY (High yearly handling cost)"
+        else:
+            decision = "BUY (Handling cost is acceptable)"
 
-data = car_details()
-print(display_car_details(*data))
+        details = (
+            f"Car Name : {name}\n"
+            f"Car Model : {model}\n"
+            f"Car Price : {price}\n"
+            f"Fuel Type : {fuel_type}\n"
+            f"Mileage : {mileage} km/l\n"
+            f"Run per Year : {run_per_year} km\n"
+            f"Petrol Price : ₹{petrol_price}/liter\n"
+            f"Yearly Handling Cost : ₹{yearly_cost:.2f}\n"
+            f"Decision : {decision}"
+        )
+
+        return details
+
+
+
+    print(display_car_details(name, model, price, fuel_type, mileage, run_per_year, petrol_price))
